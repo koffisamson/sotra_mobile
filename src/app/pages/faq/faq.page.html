@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Faq</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list padding lines="none" >
+    <p button (click)="question1()">      
+      Question 01        
+    </p>
+    <ion-item  *ngIf="reponse1=== true">
+     <p> Reponse 01</p>   
+    </ion-item>
+    <p button (click)="question2()">      
+      Question 02        
+    </p>
+    <ion-item  *ngIf="reponse2=== true">
+     <p> Reponse 02</p>   
+    </ion-item>
+    <p button (click)="question3()">      
+      Question 03        
+    </p>
+    <ion-item  *ngIf="reponse3=== true">
+     <p> Reponse 03</p>   
+    </ion-item>
+    <p button (click)="question4()">      
+      Question 04        
+    </p>
+    <ion-item  *ngIf="reponse4=== true">
+      <p> Reponse 04</p>   
+     </ion-item>
+     <p button (click)="question5()">      
+      Question 05        
+    </p>
+    <ion-item  *ngIf="reponse5=== true">
+      <p> Reponse 05</p>   
+    </ion-item>
+   
+   
+  </ion-list>  
+
+</ion-content>

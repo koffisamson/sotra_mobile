@@ -1,0 +1,134 @@
+<ion-header > 
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lignes et Itinéraires</ion-title>    
+    <ion-buttons slot="end" >
+      <ion-button  (click)="afficherFitre()" >
+        <span *ngIf="ios">Filter</span>
+        <span *ngIf="!ios">
+          <ion-icon slot="icon-only" name="options"></ion-icon>
+        </span>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="afficher===true"> 
+    <ion-slides #mySlider (ionSlideWillChange)="onSlideChangeStart($event)" >
+      <ion-slide class="first-slide"  >
+      <ion-grid padding *ngIf="afficherGare===false" >   
+        <ion-item >
+          <ion-label>Destination</ion-label>
+            <ion-select [(ngModel)]="selection1" name="selection1" >
+              <ion-select-option value="adjame">Adjame</ion-select-option>
+              <ion-select-option value="abobo">Abobo</ion-select-option>
+              <ion-select-option value="attecoube">Attecoube</ion-select-option>
+              <ion-select-option value="koumassi">Koumassi</ion-select-option>
+              <ion-select-option value="yopougon">Yopougon</ion-select-option>
+              <ion-select-option value="port-bouet">Port-bouet</ion-select-option>                   
+              <ion-select-option value="marcory">Marcory</ion-select-option>
+              <ion-select-option value="treichville">Treichville</ion-select-option>
+            </ion-select>
+        </ion-item> 
+        <ion-item >
+          <ion-label>Départ </ion-label>
+            <ion-select [(ngModel)]="selection2" name="selection2" >
+              <ion-select-option value="adjame">Adjame</ion-select-option>
+              <ion-select-option value="abobo">Abobo</ion-select-option>
+              <ion-select-option value="attecoube">Attecoube</ion-select-option>
+              <ion-select-option value="koumassi">Koumassi</ion-select-option>
+              <ion-select-option value="yopougon">Yopougon</ion-select-option>
+              <ion-select-option value="port-bouet">Port-bouet</ion-select-option>                   
+              <ion-select-option value="marcory">Marcory</ion-select-option>
+              <ion-select-option value="treichville">Treichville</ion-select-option>
+            </ion-select>
+        </ion-item>
+      <ion-grid >   
+        <ion-button color="success" expand="full" (click)='validerDestination()'>Valider</ion-button>    
+      </ion-grid>   
+      </ion-grid> 
+
+      <ion-grid padding *ngIf="afficherGare===true" >   
+        <ion-item >
+          <ion-label>Gare</ion-label>
+            <ion-select [(ngModel)]="selection" name="selection" >
+              <ion-select-option value="nord">Gare Nord</ion-select-option>
+              <ion-select-option value="sud">Gare Sud</ion-select-option>
+              <ion-select-option value="treichville">Bateau bus Treichville</ion-select-option>
+              <ion-select-option value="abobodoume">Bateau bus Yopougon</ion-select-option>
+              <ion-select-option value="blokoss">Bateau bus Blokoss</ion-select-option>
+              <ion-select-option value="ca">Cité administrative plateau</ion-select-option>
+              <ion-select-option value="blokoss">Bateau bus Blokoss</ion-select-option>                
+            </ion-select>
+        </ion-item> 
+        <ion-item >
+          <ion-label>Départ </ion-label>
+            <ion-select [(ngModel)]="selection2" name="selection2" >
+              <ion-select-option value="adjame">Adjame</ion-select-option>
+              <ion-select-option value="abobo">Abobo</ion-select-option>
+              <ion-select-option value="attecoube">Attecoube</ion-select-option>
+              <ion-select-option value="koumassi">Koumassi</ion-select-option>
+              <ion-select-option value="yopougon">Yopougon</ion-select-option>
+              <ion-select-option value="port-bouet">Port-bouet</ion-select-option>                   
+              <ion-select-option value="marcory">Marcory</ion-select-option>
+              <ion-select-option value="treichville">Treichville</ion-select-option>
+            </ion-select>
+        </ion-item>
+      <ion-grid >   
+        <ion-button color="success" expand="full" (click)='validerGare()'>Valider</ion-button>    
+      </ion-grid>   
+      </ion-grid>       
+    </ion-slide >
+    <ion-slide >
+      <ion-grid padding >
+        <ion-item color="success">
+          <ion-label text-center>Ligne</ion-label>      
+        </ion-item> 
+        <ion-item  color="success" >
+          <ion-label>  </ion-label>
+            <ion-searchbar (ionInput)='filtrerLigne($event.target.value)' animated="true" placeholder ="" text-center>
+            </ion-searchbar>       
+        </ion-item>
+        <ion-grid >   
+          <ion-button color="success" expand="full" >Valider</ion-button>    
+        </ion-grid>    
+      </ion-grid >              
+      </ion-slide> 
+  </ion-slides >   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ 
+  <ion-list>
+    <ion-item *ngFor="let item of items" [routerLink]="['/update-item', item.id]" >
+      <div item-start >
+        <h2 id="titre">{{item.ligne}}</h2>
+      </div>
+      <div >
+        <h3 id="terminus1">{{item.terminus1}}</h3>
+        <h3 id="terminus2">{{item.terminus2}}</h3>
+      </div>      
+    </ion-item>   
+  </ion-list> 
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="google" (click)="openSocial('Google+', fab)">
+        <ion-icon name="logo-googleplus"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="twitter" (click)="openSocial('Twitter', fab)">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="facebook" (click)="openSocial('Facebook', fab)">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> 
+
+</ion-content>

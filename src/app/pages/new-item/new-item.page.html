@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>New Item</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>  
+    <ion-card-header>      
+    </ion-card-header>
+      <ion-card-content >       
+        <p> Arret :<strong > {{arret.StationName}} </strong ></p>  
+        <p> Distance :<strong > Besoin d'un acces bloqué pour le moment !  </strong ></p>            
+      </ion-card-content>    
+  </ion-card>
+  <ion-grid>
+    <ion-card>
+      <ion-card-header>
+        <strong > Besoin d'un acces bloqué ! </strong >
+      </ion-card-header>
+      <ion-card-content>
+        <div id="map" #map style="height: 100%;width:100%"></div> 
+      </ion-card-content>
+    </ion-card>    
+  </ion-grid>
+
+</ion-content>

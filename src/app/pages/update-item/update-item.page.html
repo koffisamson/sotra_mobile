@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Ligne : <samp>{{item.ligne}}</samp></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar >
+    <ion-segment [(ngModel)]="sens" (ionChange)="affichage()">
+      <ion-segment-button value="aller">
+        ALLER
+      </ion-segment-button>
+      <ion-segment-button value="retour">
+        RETOUR
+      </ion-segment-button>
+    </ion-segment>    
+  </ion-toolbar>
+</ion-header>
+<ion-content >  
+  <ion-list>
+    <ion-item *ngFor="let item of items" [routerLink]="['/new-item', item.StationId]" >      
+      <ion-icon name="pin" color="success"></ion-icon>{{ item.StationName }}       
+    </ion-item>
+  </ion-list>  
+</ion-content>

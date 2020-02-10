@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Carte Monpass</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>  
+  <ion-grid (click)="callMoov()">
+    <ion-card>  
+      <ion-card-header color="success" padding> 
+        MOOV   
+      </ion-card-header>
+        <ion-card-content padding >       
+          Rechargement par Moov Monney
+        </ion-card-content>    
+    </ion-card>
+  </ion-grid>
+  <ion-grid (click)="callMtn()">
+    <ion-card>  
+      <ion-card-header color="warning" padding> 
+        MTN     
+      </ion-card-header>
+        <ion-card-content padding>       
+          Rechargement par Myn Mobile Monney
+        </ion-card-content>    
+    </ion-card>
+  </ion-grid>
+  <ion-grid>
+    <ion-card (click)="callOrange()">  
+      <ion-card-header color="light" padding> 
+        ORANGE   
+      </ion-card-header>
+        <ion-card-content padding >       
+          Rechargement par Ornge Monney
+        </ion-card-content>    
+    </ion-card>
+  </ion-grid>
+  <ion-grid (click)="callServiceClient()">
+    <ion-card>  
+      <ion-card-header color="medium" padding> 
+        SERVICE CLIENT  
+      </ion-card-header>
+        <ion-card-content padding >       
+          Contacter le service client de la SOTRA
+        </ion-card-content>    
+    </ion-card>
+  </ion-grid> 
+  <ion-grid (click)="callPolice()">
+    <ion-card>  
+      <ion-card-header color="tertiary" padding> 
+        POLICE  
+      </ion-card-header>
+        <ion-card-content padding >       
+          Contacter les services de Police
+        </ion-card-content>    
+    </ion-card>
+  </ion-grid> 
+  <ion-grid (click)="callPompier()">
+    <ion-card>  
+      <ion-card-header color="dark" padding> 
+        SAPEURS POMPIER  
+      </ion-card-header>
+        <ion-card-content padding >       
+          Contacter les services des sapeurs pompier
+        </ion-card-content>    
+    </ion-card>
+  </ion-grid> 
+</ion-content>
